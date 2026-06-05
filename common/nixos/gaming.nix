@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   programs = {
+    gamescope.enable = true;
+
     steam = {
       enable = true;
       gamescopeSession.enable = true;
@@ -13,8 +15,8 @@
     };
 
     gamemode.enable = true;
-    # To use games that distribute via AppImage on linux
-    # appimage.enable = true;
-    # appimage.binfmt = true;
   };
+  environment.systemPackages = with pkgs; [
+    bottles
+  ];
 }

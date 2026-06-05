@@ -35,6 +35,7 @@
   # enable virtualisation hypervisor for gnome boxes in hm
   virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
+  programs.nix-ld.enable = true; # Run unpatched binaries
 
   # Enable CUPS to print documents using the IPP Everywhere protocol
   services.printing.enable = true;
@@ -87,6 +88,7 @@
     uinput.enable = true;
     graphics.enable = true;
     opentabletdriver.enable = true;
+    xpadneo.enable = true; # Advanced Xbox One Driver
   };
 
   hardware.bluetooth = {

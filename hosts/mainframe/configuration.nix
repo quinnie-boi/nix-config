@@ -95,12 +95,10 @@
   };
 
   hardware.bluetooth = {
+    # Enable experimental features to see battery
     enable = true;
     powerOnBoot = false;
-    # Enable experimental features to see battery
-    # level of connected devices.
     settings.General.Experimental = true;
-    # package = pkgs.bluezFull;
   };
 
   hardware.graphics = {
