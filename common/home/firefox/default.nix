@@ -6,7 +6,7 @@
 }:
 let
   profile-name = "quinnieboi";
-  firefox-profile = ".mozilla/firefox/${profile-name}/chrome";
+  firefox-profile = "${config.xdg.configHome}/${profile-name}/chrome";
 in
 {
   home.file."${firefox-profile}/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
@@ -25,6 +25,7 @@ in
         pkgs.gnome-browser-connector
       ];
     };
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
 
     profiles.${profile-name} = {
       isDefault = true;
