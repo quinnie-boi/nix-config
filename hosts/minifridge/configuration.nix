@@ -29,6 +29,23 @@
     inputs.hardware.nixosModules.common-pc-ssd
   ];
 
+  # "Missing GStreamer plugins" for mp4 properties in nautilus
+  nixpkgs.overlays = [
+    (final: prev: {
+      nautilus = prev.nautilus.overrideAttrs (nprev: {
+        buildInputs =
+          nprev.buildInputs
+          ++ (with pkgs.gst_all_1; [
+            gst-plugins-good
+            gst-plugins-bad
+            gst-plugins-rs
+          ]);
+      });
+    })
+  ];
+  # Get HEIC thumbnails in nautilus, I also added 2 pkgs to system.
+  environment.pathsToLink = [ "share/thumbnailers" ];
+
   # Enable the GNOME Desktop Environment.
   gnome.enable = true;
 
@@ -110,6 +127,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    libheif
+    libheif.out # get HEIC thumbnails in Nautilus
     wget
     vim
     git
@@ -148,12 +167,9 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
-    # "pkgs-unstable is missing"
-    # kernelPackages = pkgs.unstable.linuxPackages_latest;
     kernelModules = [
       "i2c-dev"
       "ddcci_backlight"
-      # "uinput" # switched to using hardware.uinput.enable
       "kvm-amd"
     ];
     extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
