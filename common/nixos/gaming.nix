@@ -8,6 +8,7 @@
       gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
+      protontricks.enable = true;
       extest.enable = true;
       extraPackages = with pkgs; [
         gamescope
