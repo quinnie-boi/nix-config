@@ -22,6 +22,7 @@
 
     ./hotspot.nix
     ./immich.nix
+    ./android.nix
 
     # modules from nixos-hardware repo:
     inputs.hardware.nixosModules.common-gpu-amd
@@ -61,6 +62,7 @@
     openFirewall = true;
   };
 
+  networking.firewall.enable = true;
   services.openssh = {
     enable = true;
     settings = {

@@ -10,51 +10,46 @@
       "app-3" = "Eyedropper";
       "app-4" = "Zed";
       "app-5" = "Spotify";
-      "hotkey-0" = ["<Super>t"];
-      "hotkey-1" = ["<Super>f"];
-      "hotkey-2" = ["<Super>b"];
-      "hotkey-3" = ["<Shift><Super>c"];
-      "hotkey-4" = ["<Super>z"];
-      "hotkey-5" = ["<Super>s"];
+      "hotkey-0" = [ "<Super>t" ];
+      "hotkey-1" = [ "<Super>f" ];
+      "hotkey-2" = [ "<Super>b" ];
+      "hotkey-3" = [ "<Shift><Super>c" ];
+      "hotkey-4" = [ "<Super>z" ];
+      "hotkey-5" = [ "<Super>s" ];
     };
 
     "org/gnome/shell/extensions/tiling-assistant" = {
-        enable-tiling-popup = true; # Popup select second window to tile with
-        dynamic-keybinding-behaviour = 3; # Windows like tiling behaviour
-        active-window-hint = 1;
+      # enable-tiling-popup = true; # Popup select second window to tile with
+      # dynamic-keybinding-behaviour = 2; # Windows like tiling behaviour
+      # active-window-hint = 1;
 
-        tile-top-half =["<Super>u"];
-        tile-bottom-half = ["<Super>e"];
-        tile-left-half = ["<Super>n"];
-        tile-right-half = ["<Super>i"];
-        tile-edit-mode = ["<Super>w"];
+      tile-top-half = [ "<Super>u" ];
+      tile-bottom-half = [ "<Super>e" ];
+      tile-left-half = [ "<Super>n" ];
+      tile-right-half = [ "<Super>i" ];
+      tile-edit-mode = [ "<Super>w" ];
 
-        tile-maximize = [];
-        # restore-window = ["<Super>Down"];
-      };
+      tile-maximize = [ ];
+    };
 
     "org/gnome/shell/keybindings" = {
       # Toggle notification list
       toggle-message-tray = [ "<Super>v" ];
-      focus-active-notification = []; # Collision
+      focus-active-notification = [ ]; # Collision
       toggle-quick-settings = [ "<Super>s" ];
     };
 
     "org/gnome/desktop/wm/keybindings" = {
       # managed by tiling-assistant shell extension
       # to have all behaviour in one place. see above config
-      begin-resize = [ "<Super>slash" ]; # Easy to hit then use arrow keys
-      activate-window-menu = [ "<Alt>h"]; # Alt help
+      # begin-resize = [ "<Super>slash" ]; # Easy to hit then use arrow keys
+      activate-window-menu = [ "<Alt>h" ]; # Alt help
       close = [ "<Super>c" ];
-      maximize = ["<Super>m"];
-      unmaximize = [];
-      toggle-maximized = []; # tiling assistant does this
+      toggle-maximized = [ "<Super>m" ];
+      maximize = [ ];
+      unmaximize = [ ];
 
       panel-run-dialog = [ "<Super>r" ]; # alt-f2 is very hard
-
-
-      switch-input-source = [ "<Alt><Super>space" ];
-      switch-input-source-backward = [ "<Shift><Alt><Super>space" ];
 
       # Window Management
       ## Window Moving
@@ -75,15 +70,11 @@
       ## Switch Windows
       switch-windows = [ "<Alt>Tab" ];
 
-      ## App Window Switching Direct
-      # switch-group = [ "<Super>Tab" ];
-      # switch-group-backward = [ "<Shift><Super>Tab" ];
-
       ## Workspace switching
       switch-to-workspace-left = [ "<Alt><Super>n" ];
       switch-to-workspace-right = [ "<Alt><Super>i" ];
 
-      switch-to-workspace-last = [];
+      switch-to-workspace-last = [ ];
 
     };
 
@@ -95,15 +86,11 @@
       volume-up = [ "<Alt>j" ];
       screensaver = [ "<Super>l" ];
       logout = [ "<Super>q" ];
-      www = [];
-    };
-
-    "org/gnome/desktop/peripherals/keyboard" = {
-      delay = 250;
+      www = [ ];
     };
 
     "org/gnome/mutter/wayland/keybindings" = {
-      restore-shortcuts = [];
+      restore-shortcuts = [ ];
     };
   };
 }

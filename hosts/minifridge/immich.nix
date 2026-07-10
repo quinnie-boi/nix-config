@@ -3,7 +3,7 @@
   services.immich = {
     enable = true;
     package = pkgs-unstable.immich;
-    host = "100.99.19.37";
+    host = "localhost";
     port = 2283;
     mediaLocation = "/srv/immich";
     openFirewall = false;
@@ -21,12 +21,19 @@
     "render"
   ];
 
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  networking.firewall.allowedTCPPorts = [
+    443
+  ];
 
-  # networking.extraHosts = "100.99.19.37 quinnieboi";
-  # users.groups.immich = {};
+  networking.tempAddresses = "disabled";
 
-  # users.users.immich = {
-  #   group = "immich";
-  # };
+  services.caddy = {
+    enable = true;
+    virtualHosts."grey-warbler.hopto.org" = {
+      extraConfig = ''
+        reverse_proxy localhost:2283
+      '';
+    };
+  };
+
 }
