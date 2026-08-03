@@ -39,10 +39,10 @@
 )
 
 (deflayer colemak
-  tab  q    w    @cf  @cp   b    j    l    u    y    '
-  @cps @sa  @Ar  @cs  @ct   g    m    @cn  @Ce  @Ai  @so   ;
-  @shf @cz  @cx  @cc  d   v    k    @ch  ,    .    @M/   @shf
-  lctl lmet lalt          @spc            ralt rmet rctl
+  tab  q    w    f    p    b    j    l    u    y    '
+  @cps @sa  @Ar  @Cs  @St  g    m    @Sn  @Ce  @Ai  @so   ;
+  @shf @Mz  x    c    d    v    k    h    ,    .    @M/   @shf
+  lctl lmet lalt           @spc           ralt rmet rctl
 )
 
 ;;(defchordsv2) Does not work well with home-row-mods.
@@ -55,14 +55,6 @@
      @sym lalt lctl lsft rsft rctl lalt @sym
   )
 
-  ;; extra pinky mod taps below homerow
-  (template-expand mod-tap
-    Mz
-    z
-    lmet
-    $hold-time $left-hand-keys
-  )
-
   ;; apostrophe and underscore
   /_ (fork
     /
@@ -70,62 +62,32 @@
     (lsft)
   )
 
-  ;; extra pinky mod taps below homerow
+  ;; meta and ralt mod taps on bottom row
+  (template-expand mod-tap
+    Mz
+    z
+    lmet
+    $hold-time $left-hand-keys
+  )
   (template-expand mod-tap
     M/
     @/_
     lmet
     $hold-time $right-hand-keys
   )
-)
+  (template-expand mod-tap
+    Ax
+    x
+    ralt
+    $hold-time $left-hand-keys
+  )
+  (template-expand mod-tap
+    A.
+    .
+    ralt
+    $hold-time $right-hand-keys
+  )
 
-(defalias
-  cf (chord tab a)
-  cs (chord tab b)
-)
-
-(defchords tab 80
-  (a   ) f
-  (   b) @Cs
-  (a  b) tab
-)
-
-(defalias
-  ch (chord dollar a)
-  cn (chord dollar b)
-)
-
-(defchords dollar 40
-  (a   ) h
-  (   b) @Sn
-  (a  b) S-4
-)
-
-(defalias
-  cp (chord quote a)
-  ct (chord quote b)
-)
-
-(defchords quote 40
-  (a   ) p
-  (   b) @St
-  (a  b) S-'
-)
-
-;; cut, copy, and paste chords
-(defalias
-  cz (chord text-clipping z)
-  cx (chord text-clipping x)
-  cc (chord text-clipping c)
-)
-
-(defchords text-clipping 80
-  (z    ) @Mz
-  (  x  ) x
-  (    c) c
-  (z x  ) @cpy
-  (  x c) @pst
-  (z   c) @cut
 )
 
 (defalias
