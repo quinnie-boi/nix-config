@@ -72,15 +72,25 @@
         inherit system;
         config.allowUnfree = true;
       };
+
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      devShells = import ./devshells {
+        inherit pkgs;
+      };
     in
     {
+      devShells.${system} = devShells;
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         # Main desktop
         minifridge = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs outputs self;
             inherit pkgs-unstable;
           };
 
@@ -92,33 +102,12 @@
         # Dell Inspiron 5502
         mainframe = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs outputs self;
             inherit pkgs-unstable;
           };
 
           modules = [
             ./hosts/mainframe/configuration.nix
-          ];
-        };
-
-        homelab = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-
-          modules = [
-            ./hosts/homelab/configuration.nix
-          ];
-        };
-
-        # 2010/11 MacBook Pro
-        stone-tablet = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-
-          modules = [
-            ./hosts/stone-tablet/configuration.nix
           ];
         };
       };
@@ -137,28 +126,6 @@
           modules = [
             ./hosts/minifridge/home.nix
             nix-flatpak.homeManagerModules.nix-flatpak
-          ];
-        };
-
-        # Dell Inspiron 5502
-        "busyboy@mainframe" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-            inherit pkgs-unstable;
-          };
-          modules = [
-            ./hosts/mainframe/home.nix
-            nix-flatpak.homeManagerModules.nix-flatpak
-          ];
-        };
-
-        # 2010/11 MacBook Pro
-        "quinnieboi@stone-tablet" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/stone-tablet/home.nix
           ];
         };
       };

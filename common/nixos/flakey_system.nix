@@ -1,0 +1,35 @@
+{
+  inputs,
+  self,
+  lib,
+  config,
+  ...
+}:
+{
+  nix =
+    let
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    in
+    {
+      settings = {
+        experimental-features = "nix-command flakes";
+        # Opinionated: disable global registry
+        flake-registry = "";
+        # Workaround for https://github.com/NixOS/nix/issues/9574
+        nix-path = config.nix.nixPath;
+      };
+
+      optimise.automatic = true;
+      channel.enable = false;
+
+      # Opinionated: make flake registry and nix path match flake inputs
+      # Makes `nix run nixpkgs#...` run using the nixpkgs from this flake
+      # https://nix.dev/manual/nix/2.34/command-ref/new-cli/nix3-registry.html
+      registry = {
+        nixpkgs.flake = inputs.nixpkgs;
+        nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
+        my.flake = self;
+      };
+      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+    };
+}
