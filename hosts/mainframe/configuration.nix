@@ -15,8 +15,6 @@
     ./hardware-configuration.nix
     # ./battery.nix
 
-    ../../common/nixos/ssh.nix
-    ../../common/nixos/locale.nix
     ../../common/nixos/gaming.nix
 
     ../../common/nixos/gnome
