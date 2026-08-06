@@ -126,11 +126,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1785828668,
-        "narHash": "sha256-8fsyqeO+mJqvIzeO4xIpgJe/f7MTbbVTEC6RT6WSXNs=",
+        "lastModified": 1785967620,
+        "narHash": "sha256-IItrdb7Puk05RqOBWZYFC5X6Wl1sJmCfh5MWVHw5iMM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e72e4f299401a3689d4b3d5fc6496b11db7064eb",
+        "rev": "b7c2ada94fe99c15b0dbcf4d11fd7850b957a436",
         "type": "github"
       },
       "original": {
@@ -156,29 +156,6 @@
         "type": "github"
       }
     },
-    "python-devShells": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1757723391,
-        "narHash": "sha256-0eCthPQS7bov8IbYx2RGI04OlNEv4t/CxM4W56ikrs0=",
-        "owner": "AbrasiveAlmond",
-        "repo": "python-flake",
-        "rev": "042d590f9ee3b7e0dda89e97d69a20496e7ecef5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AbrasiveAlmond",
-        "repo": "python-flake",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "firefox-addons": "firefox-addons",
@@ -188,54 +165,7 @@
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "python-devShells": "python-devShells",
-        "rust-devShells": "rust-devShells"
-      }
-    },
-    "rust-devShells": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1736319397,
-        "narHash": "sha256-2iWVj7qi/lSgKShcXqOwuqIroj5RR22zsUDb98vPo2Y=",
-        "owner": "AbrasiveAlmond",
-        "repo": "rust-dev-flake",
-        "rev": "0d5fb79b55ab0c73bcd9d3d68343186b81ad84d4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AbrasiveAlmond",
-        "repo": "rust-dev-flake",
-        "type": "github"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "rust-devShells",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1736216977,
-        "narHash": "sha256-EMueGrzBpryM8mgOyoyJ7DdNRRk09ug1ggcLLp0WrCQ=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "bbe7e4e7a70d235db4bbdcabbf8a2f6671881dd7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "systems": {

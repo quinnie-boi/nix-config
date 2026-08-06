@@ -125,9 +125,10 @@
     };
   };
 
-  nix.registry = {
-    rust.flake = inputs.rust-devShells;
-  };
+  # Todo, add this flake's devshells to the inputs.
+  # nix.registry = {
+  #   rust.flake = inputs.rust-devShells;
+  # };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

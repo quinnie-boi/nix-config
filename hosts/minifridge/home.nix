@@ -126,10 +126,11 @@
       tailscale-qs
     ]);
 
-  nix.registry = {
-    rust.flake = inputs.rust-devShells;
-    python.flake = inputs.python-devShells;
-  };
+  # Todo: add this flake's devshells to the registry.
+  # nix.registry = {
+  #   rust.flake = inputs.rust-devShells;
+  #   python.flake = inputs.python-devShells;
+  # };
 
   # These are reset if not manually defined. I would much prefer imperative usage
   dconf.settings = {
