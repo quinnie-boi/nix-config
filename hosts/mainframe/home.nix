@@ -11,6 +11,7 @@
     ../../common/home/tmux.nix
 
     ../../common/home/kanata-service
+    ../../common/home/templates
     ../../common/home/firefox
     ../../common/home/shellAliases.nix
   ];

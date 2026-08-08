@@ -15,6 +15,7 @@
     # ../apps
     # ../../common/home/hotspot.nix
     ../../common/home/kanata-service
+    ../../common/home/templates
     ../../common/home/gnome
 
     ../../common/home/firefox
