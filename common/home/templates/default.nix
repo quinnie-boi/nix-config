@@ -1,8 +1,12 @@
 {
   home.file = {
     "Templates/flake.nix" = {
-      source = ./flake.nix;
+      source = ./flake.txt;
     };
+    "Templates/shell.nix" = {
+      source = ./shell.txt;
+    };
+
     "Templates/Markdown.md" = {
       source = ./empty.txt;
     };
