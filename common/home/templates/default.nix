@@ -24,6 +24,9 @@
     "Templates/Portable Document.pdf" = {
       source = ./pdf.pdf;
     };
+    "Templates/.envrc" = {
+      source = ./envrc.txt;
+    };
     "Templates/Typst.typst" = {
       source = ./empty.txt;
     };
