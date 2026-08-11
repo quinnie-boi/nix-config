@@ -6,7 +6,7 @@
 }:
 let
   profile-name = "quinnieboi";
-  firefox-profile = "${config.xdg.configHome}/${profile-name}/chrome";
+  firefox-profile = "${config.xdg.configHome}/mozilla/firefox/${profile-name}/chrome";
 in
 {
   home.file."${firefox-profile}/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
