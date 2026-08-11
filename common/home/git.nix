@@ -9,12 +9,12 @@
   programs.git = {
     enable = true;
     settings = {
-      user.name = "AbrasiveAlmond";
+      user.name = "quinnie-boi";
       user.email = "qpearson.nz@gmail.com";
       push.autoSetupRemote = true;
       credential = {
         helper = "oauth";
-        "https://github.com".username = "AbrasiveAlmond";
+        "https://github.com".username = "quinnie-boi";
         credentialStore = "cache";
       };
     };
