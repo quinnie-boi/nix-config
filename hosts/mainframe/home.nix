@@ -5,15 +5,16 @@
 {
   # You can import other home-manager modules here
   imports = [
-    ../../common/home/gnome
-    ../../common/home/git.nix
-    ../../common/home/tmux.nix
-
-    ../../common/home/kanata-service
-    ../../common/home/templates
-    ../../common/home/firefox
-    ../../common/home/shellAliases.nix
     ../../common/home/flakey_home.nix
+    ../../common/home/gnome
+    ../../common/home/templates
+    ../../common/home/kanata-service
+    ../../common/home/firefox
+
+    # Terminally stuff
+    ../../common/home/shellAliases.nix
+    ../../common/home/starship.nix
+    ../../common/home/git.nix
   ];
 
   programs.direnv = {
@@ -23,6 +24,14 @@
       nix-direnv.enable = true;
       silent = true;
     };
+
+  programs.bash.enable = true;
+
+  # accessed via home-manager modules
+  services.kanata = {
+    enable = true;
+    user = "busyboy";
+  };
 
   home = {
     username = "busyboy";
@@ -69,20 +78,11 @@
       gsconnect
     ]);
 
+  fonts.fontconfig.enable = true;
 
-  # accessed via home-manager modules
-  services.kanata = {
-    enable = true;
-    user = "busyboy";
-  };
+  nixpkgs.config.allowUnfree = true;
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
-  # Enable home-manager and git
+  # Enable home-manager
   programs.home-manager.enable = true;
 
   # Nicely reload system units when changing configs

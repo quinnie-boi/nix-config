@@ -4,25 +4,18 @@
   ...
 }:
 {
-  # You can import other home-manager modules here
   imports = [
-    # outputs.homeManagerModules
-    # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-flatpak.homeManagerModules.nix-flatpaka
-    # inputs.nvchad4nix.homeManagerModule
-
-    # ../apps
     # ../../common/home/hotspot.nix
-    ../../common/home/kanata-service
-    ../../common/home/templates
+    ../../common/home/flakey_home.nix
     ../../common/home/gnome
-
+    ../../common/home/templates
+    ../../common/home/kanata-service
     ../../common/home/firefox
+
+    # Terminally stuff
     ../../common/home/shellAliases.nix
     ../../common/home/starship.nix
-    ../../common/home/tmux.nix
     ../../common/home/git.nix
-    ../../common/home/flakey_home.nix
   ];
 
   programs.direnv = {
@@ -39,9 +32,10 @@
     user = "quinnieboi";
   };
 
-  fonts.fontconfig.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
+  home = {
+    username = "quinnieboi";
+    homeDirectory = "/home/quinnieboi";
+  };
 
   home.packages =
     (with pkgs-unstable; [
@@ -127,13 +121,10 @@
       tailscale-qs
     ]);
 
-  # Todo: add this flake's devshells to the registry.
-  # nix.registry = {
-  #   rust.flake = inputs.rust-devShells;
-  #   python.flake = inputs.python-devShells;
-  # };
+  fonts.fontconfig.enable = true;
 
-  # These are reset if not manually defined. I would much prefer imperative usage
+  # These are reset to all disabled unless manually defined.
+  # I would much prefer imperative usage but alas.
   dconf.settings = {
     "org/gnome/shell" = {
       enabled-extensions = [
@@ -153,10 +144,7 @@
     };
   };
 
-  home = {
-    username = "quinnieboi";
-    homeDirectory = "/home/quinnieboi";
-  };
+  nixpkgs.config.allowUnfree = true;
 
   # Enable home-manager
   programs.home-manager.enable = true;
