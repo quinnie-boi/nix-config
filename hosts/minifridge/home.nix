@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   pkgs-unstable,
   ...
@@ -23,6 +22,7 @@
     ../../common/home/starship.nix
     ../../common/home/tmux.nix
     ../../common/home/git.nix
+    ../../common/home/flakey_home.nix
   ];
 
   programs.direnv = {

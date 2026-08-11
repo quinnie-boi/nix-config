@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -14,7 +13,15 @@
     ../../common/home/templates
     ../../common/home/firefox
     ../../common/home/shellAliases.nix
+    ../../common/home/flakey_home.nix
   ];
+
+  programs.direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;
+      silent = true;
+    };
 
   home = {
     username = "busyboy";
@@ -65,52 +72,6 @@
       gsconnect
     ]);
 
-  # dconf.settings."org/gnome/shell" = {
-  #     disable-user-extensions = false;
-  #     enabled-extensions = with pkgs.gnomeExtensions; [
-  #       blur-my-shell.extensionUuid
-  #       happy-appy-hotkey.extensionUuid
-  #       caffiene.extensionUuid
-  #       middle-click-to-close-in-overview.extensionUuid
-  #       tiling-assistant.extensionUuid
-  #       gsconnect.extensionUuid
-  #     ];
-  #   };
-  # };
-
-  # services.flatpak = {
-  #   enable = true;
-  #   update.auto = {
-  #     enable = true;
-  #     onCalendar = "daily";
-  #   };
-
-  #   packages = [ # All installing from flathub stable by default
-  #     "dev.bragefuglseth.Keypunch"
-  #     "re.sonny.Workbench"
-  #   ];
-
-  #   remotes = [
-  #     {
-  #       name = "flathub";
-  #       location = "https://flathub.org/repo/flathub.flatpakrepo";
-  #     }
-  #     {
-  #       name = "flathub-beta";
-  #       location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
-  #     }
-  #   ];
-
-  #   # overrides = {
-  #   #   "io.gitlab.librewolf-community".Context = {
-  #   #     filesystems = [
-  #   #       "~/Downloads:rw" # downloads
-  #   #       "~/Documents:ro" # expose documents for uploading
-  #   #     ];
-
-  #   #   };
-  #   # };
-  # };
 
   # accessed via home-manager modules
   services.kanata = {

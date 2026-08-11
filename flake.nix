@@ -13,7 +13,6 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
 
     # Home manager
     home-manager = {
@@ -42,7 +41,6 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
-      nix-flatpak,
       ...
     }@inputs:
     let
@@ -106,13 +104,25 @@
         "quinnieboi@minifridge" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = {
-            inherit inputs outputs nix-flatpak;
+            inherit inputs outputs self;
             inherit pkgs-unstable;
           };
 
           modules = [
             ./hosts/minifridge/home.nix
-            nix-flatpak.homeManagerModules.nix-flatpak
+          ];
+        };
+
+        # Personal Desktop
+        "busyboy@mainframe" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = {
+            inherit inputs outputs self;
+            inherit pkgs-unstable;
+          };
+
+          modules = [
+            ./hosts/mainframe/home.nix
           ];
         };
       };

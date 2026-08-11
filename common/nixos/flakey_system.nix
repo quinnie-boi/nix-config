@@ -1,6 +1,5 @@
 {
   inputs,
-  self,
   lib,
   config,
   ...
@@ -28,7 +27,8 @@
       registry = {
         nixpkgs.flake = inputs.nixpkgs;
         nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
-        my.flake = self;
+        # moved to home-manager so it can be updated without full system rebuild.
+        # my.flake = self;
       };
       nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
