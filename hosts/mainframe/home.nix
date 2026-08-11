@@ -19,6 +19,7 @@
   programs.direnv = {
       enable = true;
       enableBashIntegration = true;
+      # enables caching n stuff. checkout their gh for info
       nix-direnv.enable = true;
       silent = true;
     };
@@ -48,11 +49,7 @@
       tree
       zoxide
 
-      clang
-      # llvmPackages.bintools
-      rustup
-
-      # just in case it is more performant
+      # useful for the occasional broken website
       ungoogled-chromium
     ])
     ++ (with pkgs.gnomeExtensions; [
@@ -81,16 +78,9 @@
 
   nixpkgs = {
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
-      #allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["spotify"];
     };
   };
-
-  # Todo, add this flake's devshells to the inputs.
-  # nix.registry = {
-  #   rust.flake = inputs.rust-devShells;
-  # };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
