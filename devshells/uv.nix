@@ -2,7 +2,7 @@
 
 pkgs.mkShell {
   packages = [
-    pkgs.python314
+    pkgs.python3
     pkgs.ty
     pkgs.uv
   ];
@@ -12,7 +12,7 @@ pkgs.mkShell {
     # Prevent uv from managing Python downloads
     UV_PYTHON_DOWNLOADS = "never";
     # Force uv to use nixpkgs Python interpreter
-    UV_PYTHON = pkgs.python314.interpreter;
+    UV_PYTHON = pkgs.python3.interpreter;
   };
   shellHook = "unset PYTHONPATH";
 }
