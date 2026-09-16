@@ -27,7 +27,7 @@
     "Templates/.envrc" = {
       source = ./envrc.txt;
     };
-    "Templates/Typst.typst" = {
+    "Templates/Typst.typ" = {
       source = ./empty.txt;
     };
   };
