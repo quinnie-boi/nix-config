@@ -29,6 +29,7 @@
   ];
 
   programs.nh = {
+    flake = "/home/busyboy/nix-config";
     enable = true;
     clean.enable = true; # defaults weekly
     clean.extraArgs = "--keep 2";
