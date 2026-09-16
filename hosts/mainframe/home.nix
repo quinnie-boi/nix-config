@@ -25,6 +25,16 @@
       silent = true;
     };
 
+  programs.zoxide = {
+    enable = true;
+    options = ["--cmd cd"]; # replace cd command
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
   programs.bash.enable = true;
 
   # accessed via home-manager modules

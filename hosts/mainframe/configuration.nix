@@ -28,6 +28,12 @@
     #    - When NVIDIA PRIME is enabled, the GPU bus IDs must be configured.
   ];
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true; # defaults weekly
+    clean.extraArgs = "--keep 2";
+  };
+
   services.openssh = {
     enable = true;
     settings = {
@@ -57,7 +63,7 @@
   };
 
   networking = {
-    hostName = "mainframe-laptop";
+    hostName = "mainframe";
     # Enable networking
     networkmanager.enable = true;
   };
