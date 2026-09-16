@@ -12,7 +12,6 @@ in
   home.file."${firefox-profile}/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
   home.file."${firefox-profile}/customChrome.css".source = ./chrome/customChrome.css;
   home.file."${firefox-profile}/customContent.css".source = ./chrome/customContent.css;
-  home.file."${firefox-profile}/gnome-sidebery.css".source = ./chrome/gnome-sidebery.css;
   home.file."${firefox-profile}/clean-popups.css".source = ./chrome/clean-popups.css;
 
   programs.firefox = {
