@@ -2,7 +2,7 @@
   pkgs,
   pkgs-unstable,
   ...
-}
+}:
 {
   programs.direnv = {
     enable = true;
@@ -34,6 +34,7 @@
       pika-backup # Backup manager
       eyedropper # Colour picker
       apostrophe # Markdown Editor
+      rnote # Drawing app
       serigy # Clipboard manager
       impression # Disk image etcher
       ffmpeg # Audio/video cli tools
@@ -44,11 +45,15 @@
       neovim
       tree
       zoxide
+
+      # LSPs
       nil
+      markdown-oxide
 
       ungoogled-chromium # occasionally handy
       x2goclient
       discord
+      planify
 
       # fonts
       open-sans

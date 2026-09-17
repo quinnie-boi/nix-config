@@ -11,6 +11,7 @@
     in
     {
       settings = {
+        auto-optimise-store = true;
         experimental-features = "nix-command flakes";
         # Opinionated: disable global registry
         flake-registry = "";
