@@ -16,6 +16,7 @@
   programs.zoxide = {
     enable = true;
     options = ["--cmd cd"]; # replace cd command
+    package = pkgs-unstable.zoxide;
   };
 
   programs.fzf = {
@@ -45,8 +46,6 @@
       gnome-extensions-cli
       neovim
       tree
-      zoxide
-
       # LSPs
       nil
       markdown-oxide
