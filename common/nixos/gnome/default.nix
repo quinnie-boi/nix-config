@@ -36,6 +36,6 @@
     gnome-weather
     evince # Gnome Document viewer, superseeded by papers
     totem # Video player, outdated not adwaita. Superseeded by celluloid
-    software # Software app, superceeded by Bazaar
+    gnome-software # Software app, superceeded by Bazaar
   ];
 }
