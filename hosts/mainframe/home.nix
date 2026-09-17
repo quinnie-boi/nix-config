@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   ...
 }:
 {
@@ -49,9 +50,8 @@
   };
 
   home.packages =
-    (with pkgs; [
-
-      bazaar
+    (with pkgs-unstable; [
+      ungoogled-chromium # handy occasionally
       zed-editor
 
       gnome-feeds # RSS Feeds
@@ -59,38 +59,31 @@
       # Utilities
       eyedropper # Colour picker
       apostrophe # Markdown Editor
-      speedcrunch
-
       kanata # Keyboard remapping
+      serigy # clipboard manager
 
-      tmux
       neovim
       tree
       zoxide
 
-      # useful for the occasional broken website
-      ungoogled-chromium
+      speedcrunch
     ])
     ++ (with pkgs.gnomeExtensions; [
       # Gnome Extensions
-      reboottouefi # Adds uefi boot option
-      happy-appy-hotkey # Assign hotkeys to apps to focus or launch them
-      dual-shock-4-battery-percentage # power level in top panel
-      blur-my-shell # Blurry shell is a needed ux improvement
-      caffeine # Keep PC on
+      happy-appy-hotkey # Assign app hotkeys
+      blur-my-shell # UX improvement
+      caffeine # Keep screen awake
       hide-top-bar
-      tactile # Tile windows using a custom grid.
-      gtile # another tiling thing
-      tiling-assistant # Windows-like tiling
-      middle-click-to-close-in-overview # Much better.
-      control-monitor-brightness-and-volume-with-ddcutil # Control monitor brightness
+      tiling-assistant # Improved tiling keybinds
+      middle-click-to-close-in-overview # minor UX improvement
+      control-monitor-brightness-and-volume-with-ddcutil # Control external monitor brightness
       burn-my-windows # Visual swag
-      gsconnect
+      gsconnect # Phone sync
     ]);
 
   fonts.fontconfig.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   # Enable home-manager
   programs.home-manager.enable = true;

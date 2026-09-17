@@ -14,6 +14,7 @@
     rnote # Drawing app
     mission-center # Task manager
     gnome-graphs # Worse desmos
+    bazaar # Better software app
 
     # fix "Your GStreamer installation is missing a plug-in." in nautilus
     gst_all_1.gstreamer
@@ -23,20 +24,18 @@
     gst_all_1.gst-plugins-ugly
     gst_all_1.gst-libav
     gst_all_1.gst-vaapi
-
   ];
 
   environment.gnome.excludePackages = with pkgs; [
-    # snapshot      # Camera
     simple-scan # Document Scanner for hardware scanners
     seahorse # Password manager
     yelp # Help Viewer
     gnome-tour
     gnome-music
     gnome-contacts
-    # gnome-calendar
     gnome-weather
     evince # Gnome Document viewer, superseeded by papers
     totem # Video player, outdated not adwaita. Superseeded by celluloid
+    software # Software app, superceeded by Bazaar
   ];
 }
