@@ -53,20 +53,6 @@ in
       search.force = true;
       # search.default = "Kagi";
       search.engines = {
-        "Kagi" = {
-          urls = [
-            {
-              template = "https://kagi.com/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-        };
-
         "Marginalia" = {
           urls = [
             {
@@ -127,23 +113,40 @@ in
               template = "https://nixos.wiki/index.php?search={searchTerms}";
             }
           ];
-          icon = "https://nixos.wiki/favicon.png";
-          updateInterval = 24 * 60 * 60 * 1000;
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           definedAliases = [ "@nw" ];
+        };
+
+        "UC Library" = {
+          urls = [
+            {
+              template = "https://libcat.canterbury.ac.nz/Combined/Results?lookfor={searchTerms}&type=All+Fields&limit=20";
+            }
+          ];
+          definedAliases = [ "@uc" ];
         };
 
         "Home Manager Options" = {
           urls = [
             {
-              template = "https://home-manager-options.extranix.com/";
+              template = "https://search.nixos.org/options";
               params = [
+                {
+                  name = "type";
+                  value = "options";
+                }
                 {
                   name = "query";
                   value = "{searchTerms}";
                 }
+                {
+                  name = "source";
+                  value = "home_manager";
+                }
               ];
             }
           ];
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           definedAliases = [ "@ho" ];
         };
 
