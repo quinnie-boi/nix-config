@@ -5,7 +5,7 @@
     ./templates
     ./kanata-service
     ./firefox
-    ./programs.nix
+    ./packages.nix
 
     # Terminally stuff
     ./shellAliases.nix
