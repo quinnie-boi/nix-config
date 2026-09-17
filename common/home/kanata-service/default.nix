@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 with lib;
@@ -10,7 +11,6 @@ let
   kanataFolder = "${../kanata-service}";
 in
 {
-
   options.services.kanata = {
     enable = mkEnableOption "enable kanata service";
     user = mkOption {
@@ -27,6 +27,9 @@ in
     #   recursive = true;
     #   enable = true;
     # };
+    home.packages = [
+      pkgs-unstable.kanata
+    ];
 
     systemd.user.services.kanata = {
       Unit.Description = "Kanata Daemon";

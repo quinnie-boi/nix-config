@@ -11,10 +11,10 @@
     eyedropper # Colour picker
     papers # PDF reader
     blackbox-terminal # better terminal
-    rnote # Drawing app
     mission-center # Task manager
     gnome-graphs # Worse desmos
     bazaar # Better software app
+    fragments # BitTorrent
 
     # fix "Your GStreamer installation is missing a plug-in." in nautilus
     gst_all_1.gstreamer

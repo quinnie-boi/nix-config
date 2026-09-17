@@ -41,66 +41,13 @@
     (with pkgs-unstable; [
       lutris
       cartridges
-
       qemu
-
-      bazaar # Gnome software is a single threaded mess.
-
-      # Gnome apps
-      fragments # BitTorrent
-      hydrapaper # Gnome utility for multi-screen wallpaper
-
-      # Social
-      tuba # Browse the fediverse
-      fractal # Matrix Client
-      gnome-feeds # RSS Feeds
-      spotify
 
       # Image editing
       darktable # Photo manager and raw developer
       shotwell # Photo manager
       inkscape # Vector graphics editor
       hugin # Panorama stitcher
-      ffmpeg # Audio/video cli tools
-
-      # Utilities
-      impression # Disk image etcher
-
-      pwvucontrol # Disables monitor audio sleep while running
-
-      discord
-      ungoogled-chromium # for limnu
-
-      # coding
-      vscodium
-      zed-editor
-      flatpak-builder # nix packaged one works while flatpackaged one doesn't...
-
-      # Now Handled by rust-devshells flake
-      # https://github.com/AbrasiveAlmond/rust-dev-flake
-      rust-analyzer
-      gnome-builder
-      gnome-extensions-cli
-      libsecret
-      tree
-      nil
-
-      vivid
-    ])
-    ++ (with pkgs; [
-      # Due to bug in Zed editor dependency user fonts aren't detected
-      open-sans
-      x2goclient
-
-      linux-wifi-hotspot
-      # errands
-      kanata # Keyboard remapping software. I dont think the kanataservice module works without user installation..
-      # ddcui # Boot-kernel module "ddcci_backlight" for brightness control
-      ddcutil # Brightness
-
-      pika-backup # Backup manager
-      nautilus-python # Python bindings for nautilus extension API
-      # a dependency for gsconnect that may not be packaged with it.
     ])
     ++ (with pkgs.gnomeExtensions; [
       # Gnome Extensions
