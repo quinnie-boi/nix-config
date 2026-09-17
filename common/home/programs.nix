@@ -38,6 +38,7 @@
       serigy # Clipboard manager
       impression # Disk image etcher
       ffmpeg # Audio/video cli tools
+      ddcutil # Brightness
       pwvucontrol # Disables monitor audio sleep while running
       linux-wifi-hotspot
       flatpak-builder
@@ -57,7 +58,11 @@
 
       # fonts
       open-sans
-      ddcutil # Brightness
+      iosevka
+      carlito # google equivalent to MS calibri
+      minecraftia # minecraft font
+      monocraft # monospace + ligatures minecraft programming font
+      maple-mono.opentype
     ])
     ++ (with pkgs.gnomeExtensions; [
       # Gnome Extensions
